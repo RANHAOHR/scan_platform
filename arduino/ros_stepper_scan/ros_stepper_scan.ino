@@ -11,7 +11,7 @@ AF_Stepper motor(200, 2);
 
 void messageCb(const std_msgs::Float64 &delta_degree)
 {
-  int deg_to_steps = abs((int) delta_degree.data / 1.8);
+  int deg_to_steps = abs((int) delta_degree.data / 1.8)-1;
   if (delta_degree.data > 0)
   {
     motor.step(deg_to_steps, FORWARD, MICROSTEP);
